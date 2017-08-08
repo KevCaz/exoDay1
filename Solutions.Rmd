@@ -1,0 +1,20 @@
+---
+title: Solutions
+font : 12pt
+geometry: margin=1.2in
+header-includes:
+    - \usepackage{setspace}
+    - \setstretch{1,2}
+    - \usepackage{times}
+---
+
+
+## Practice 1
+
+## Practice 2
+
+## Practice 3
+
+## Practice 4
+
+## Practice 5
