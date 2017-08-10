@@ -6,15 +6,159 @@ header-includes:
     - \usepackage{setspace}
     - \setstretch{1,2}
     - \usepackage{times}
+# Rscript --no-init-file -e 'rmarkdown::render("Solutions.Rmd", output_format = "pdf_document")'
 ---
 
 
-## Practice 1
+# Practice 1
 
-## Practice 2
+```{r setup, echo = FALSE}
+library(graphicsutils)
+myblue <- "#7eb6d6"
+myred <- "#e080a3"
+mygreen <- "#d4e09b"
+mygrey <- "grey35"
+mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las = 1, cex.main=2, cex.axis=1.4, cex.lab=1.4, bty="l")
+```
 
-## Practice 3
 
-## Practice 4
+## $P(A \cup B \cup C)$
 
-## Practice 5
+<!-- Faire une figure -->
+
+$$P(A \cup B \cup C) = P(A \cup B) + P(C) - P(A \cup B \cap C)$$
+
+$$P(A \cup B \cup C) = P(A) + P(B) - P(A \cap B)  + P(C) - P(A \cup B \cap C)$$
+
+$$P(A \cup B \cup C) = P(A) + P(B) - P(A \cap B)  + P(C) - P(A \cap C) - P(A \cap B) + P(A \cap B \cap C)$$
+
+
+
+
+
+# Solution 2
+
+X = "ducks killed" ; $\Omega$ = {0,1,2,3}
+
+1. (1,1,0) (1,0,1) (0,1,1); $P(X = 2) = 3*p^2*(1-p)$
+
+Event (0,0,1); X = "number of failure before first success"
+
+2. (0,0,1) ; $P(X = 2) = (1-p)^2p$
+
+3. Here it is:
+
+$$P(X = k) = \binom{n}{k} p^k(1-p)^{n-k}$$
+
+4. Here it is:
+
+$$P(X = k) = p(1-p)^{n-1}$$
+
+
+
+
+
+# Practice 3
+
+## Model
+
+1- Dave: N(0,1)
+
+2- Amael: N(.5,3)
+
+3- Will: N(.5,.5)
+
+<!-- insert figure -->
+
+```{r normal, echo=FALSE, fig.width=7, fig.height=4.5}
+seqx <- seq(-6,6,0.1)
+par(mypar)
+plot(seqx, dnorm(seqx, .5, .5), type="n")
+lines(seqx, dnorm(seqx), type="l", col=myblue, lwd=2)
+lines(seqx, dnorm(seqx, .5, 3), col=mygreen, lwd=2)
+lines(seqx, dnorm(seqx, .5, .5), col=myred, lwd=2)
+legend("topleft", legend = c("Dave", " Amael",  "Will"), col=c(myblue, mygreen, myred), lwd=3, bty="n")
+```
+
+
+## Starting on time
+
+$$P("all there before 0") = P(X_1<0)P(X_2<0)P(X_3<0)$$
+
+
+
+## Start delayed by at least half an hour
+
+$$P("at least one 30min late") = 1-P("all there before")$$
+
+$$P("at least one 30min late") = 1-P(X_1<.5)P(X_2<.5)P(X_3<.5)$$
+
+
+
+## Starting the meeting
+
+ontime / avec .5 min de retard / à quelle heure commencera
+
+when all three are present
+
+"start time x" = "all there at x" = "the last arrive at x the two other where there"
+
+Z =
+
+$P(X_1<x)P(X_2<x)f_3(x) + P(X_1<x)P(X_3<x)f_2(x) + P(X_2<x)P(X_3<x)f_1(x)$=
+
+
+
+## Solution 4
+
+60\$ = 20*3\$
+
+$$E(X) < 20$$
+
+$$\frac{1-p}{p} < 20$$
+
+$$p < \frac{1}{21}$$
+
+
+## Solution 5
+
+2 random variables:
+
+- X = 1 ("sick"); X = 0 ("sane")
+
+- T = 1 ("test positive"); T = 0 ("test negative")
+
+
+We know $P(X=1)$ (external study "prior", we'll use it as the parameter of a binomial variable)
+
+In 1. we need to determine $P(X=1|T=1)$
+
+$$P(X=1|T=1) = \frac{P(X=1 \cap T=1)}{P(T=1)}$$
+
+$$P(X=1|T=1) = \frac{P(T=1|X=1)P(X=1)}{P(T=1|X=1)P(X=1)+P(T=1|X=0)P(X=0)}$$
+
+$$P(X=1|T=1) = \frac{1}{1+\frac{P(T=1|X=0)P(X=0)}{P(T=1|X=1)P(X=1)}}$$
+
+$$P(X=1|T=1) = \frac{1}{1+\frac{\alpha(1-\pi)}{(1-\alpha)\pi}}$$
+
+
+For 2. determine $P(X=1|T=0)$
+
+$$P(X=1|T=0) = \frac{P(X=1 \cap T=0)}{P(T=0)}$$
+
+$$P(X=1|T=0) = \frac{1}{1+\frac{P(T=0|X=0)P(X=0)}{P(T=0|X=1)P(X=1)}}$$
+
+$$P(X=1|T=0) = \frac{1}{1+\frac{(1-\beta)(1-\pi)}{\beta\pi}}$$
+
+
+## Practice 6
+
+
+<!-- $$B = Nt(\beta_{2,3}, \beta_{1,3}, \beta_{1,2})$$
+
+$$\Phi(k) = \sum_i\sum_j \alpha_{i,j} m_{k+1,i} x_j + \sum_{l} \beta_{k+1,l}$$
+
+$$logit(P(X=S_k)) = \mathcal{N}(\Phi(k), \sigma)$$ -->
+
+
+## Practice 7
